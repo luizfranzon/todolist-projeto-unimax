@@ -1,6 +1,6 @@
 import { useTasks, Task } from "../context/TaskContext";
+import { TasksLists } from "../components/TasksList";
 import React, { useEffect, useState } from "react";
-import { ListItem } from "../components/ListItem";
 
 import {
   StyleSheet,
@@ -69,14 +69,7 @@ export default function Home() {
         </View>
 
         <View style={styles.itemsList}>
-          {orderedTasksByCompleted.map((task) => (
-            <ListItem
-              key={task.id}
-              title={task.title}
-              id={task.id}
-              isCompleted={task.isCompleted}
-            />
-          ))}
+          <TasksLists tasksData={orderedTasksByCompleted} />
         </View>
       </View>
     </>
@@ -125,8 +118,5 @@ const styles = StyleSheet.create({
   },
   itemsList: {
     alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-    marginTop: 24,
   },
 });

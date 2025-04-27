@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TaskProvider } from "./src/context/TaskContext";
-import Routes from "./src/routes";
+import { TaskProvider } from "./context/TaskContext";
+import Routes from "./routes";
 import { StatusBar } from "expo-status-bar";
 
 export default function App() {

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useTasks } from "../context/TaskContext";
-import { ListItem } from "../components/ListItem";
+import { TasksLists } from "../components/TasksList";
 
 export default function History() {
   const { completedTasks } = useTasks();
@@ -11,18 +11,18 @@ export default function History() {
 
       <View style={styles.completedTasksList}>
         {completedTasks.length === 0 && (
-          <Text style={{ color: "white", marginTop: 16, fontSize: 16, textAlign: "center" }}>
+          <Text
+            style={{
+              color: "white",
+              marginTop: 16,
+              fontSize: 16,
+              textAlign: "center",
+            }}
+          >
             Você ainda não concluiu {"\n"} nenhuma tarefa.
           </Text>
         )}
-        {completedTasks.map((task) => (
-          <ListItem
-            key={task.id}
-            title={task.title}
-            id={task.id}
-            isCompleted={task.isCompleted}
-          />
-        ))}
+        <TasksLists paddingBottom={100} tasksData={completedTasks} />
       </View>
     </View>
   );
